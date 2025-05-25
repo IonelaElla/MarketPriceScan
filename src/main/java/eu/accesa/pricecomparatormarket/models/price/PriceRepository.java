@@ -15,6 +15,9 @@ public interface PriceRepository extends JpaRepository<Price, Long> {
     @Query("FROM Price price WHERE (:storeName IS NULL OR price.store.name = :storeName) AND (:productCategory IS NULL OR price.product.productCategory = :productCategory) AND (:productBrand IS NULL OR price.product.brand = :productBrand)")
     List<Price> filterBy(@Param("storeName") String storeName, @Param("productCategory") String productCategory, @Param("productBrand") String productBrand);
 
+    @Query("SELECT p FROM Price p WHERE p.product.productId = :productId ORDER BY p.effectiveDate DESC LIMIT 1")
+    Optional<Price> findLatestPriceByProductId(@Param("productId") String productId);
+    Optional<Price> findTopByProduct_ProductIdOrderByEffectiveDateDesc(String productId);
 
 
 }
