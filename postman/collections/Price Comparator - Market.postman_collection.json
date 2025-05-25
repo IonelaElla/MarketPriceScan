@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "49b58aff-f6a9-465a-a145-f44099117db4",
+		"name": "Price Comparator - Market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28909713"
+	},
+	"item": [
+		{
+			"name": "Optimize Shopping Basket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productNames\": [\"lapte zuzu\", \"piept pui\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/basket/optimize",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"basket",
+						"optimize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Top Available Discounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/discounts/top?limit=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"discounts",
+						"top"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get New Discounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/discounts/new",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"discounts",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/prices/history?storeName=lidl&productCategory=lactate&productBrand=Zuzu",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"prices",
+						"history"
+					],
+					"query": [
+						{
+							"key": "storeName",
+							"value": "lidl"
+						},
+						{
+							"key": "productCategory",
+							"value": "lactate"
+						},
+						{
+							"key": "productBrand",
+							"value": "Zuzu"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
